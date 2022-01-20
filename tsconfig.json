@@ -1,0 +1,20 @@
+{
+	"exclude": ["node_modules/*", "coverage/*"],
+	"compilerOptions": {
+		"allowJs": true,
+		"target": "esnext",
+		"module": "esnext",
+		"lib": ["dom", "esnext"],
+		"types": ["node","mocha", "chai"],
+		"moduleResolution": "node",
+		"strict": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"importsNotUsedAsValues": "error",
+		"isolatedModules": true,
+		"sourceMap": true,
+		"declaration": true,
+		"resolveJsonModule": true,
+		"declarationMap": true
+	}
+}

@@ -1,0 +1,71 @@
+#####################
+# Project Specific
+tsconfig.tsbuildinfo
+.pgpass
+
+#####################
+# Rush temporary files
+common/deploy/
+common/temp/
+common/autoinstallers/*/.npmrc
+.rush/temp/
+.secrets
+!.github/
+workflow/
+*.log
+
+#####################
+# General
+#####################
+*.logs
+temp/
+dist/
+
+#####################
+# Node and Web Related
+#####################
+# Runtime data
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Dependency directories
+node_modules/
+node_modules
+ssl/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# dotenv environment variables file
+.env
+
+# direnv environment variables file
+.envrc
+
+# OS X temporary files
+.DS_Store
+
+# VScode
+.vscode
+
+# User-specific stuff
+.idea/**/workspace.xml
+.idea/**/shelf
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/*.xml
+.idea_modules/
+.idea/httpRequests
+*.iws
+.quokka
+/package.json

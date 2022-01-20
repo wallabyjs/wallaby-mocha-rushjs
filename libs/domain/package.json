@@ -7,11 +7,11 @@
 	},
 	"type": "module",
 	"exports": {
-		"./*": "./src/*.ts"
+		"./*": "./dist/*.js"
 	},
 	"typesVersions": {
 		"*": {
-			"*": ["./src/*"]
+			"*": ["./dist/*"]
 		}
 	},
 	"keywords": [],

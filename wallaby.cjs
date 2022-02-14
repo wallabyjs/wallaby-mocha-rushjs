@@ -20,7 +20,7 @@ module.exports = function(wallaby) {
 		env: {
 			type: "node",
 			params: {
-				runner: "--experimental-specifier-resolution=node --loader " + require('path').join(__dirname, 'loader.mjs')
+				runner: "--experimental-specifier-resolution=node --experimental-loader " + require('path').join(__dirname, 'loader.mjs')
 			},
 			"DOTENV_CONFIG_PATH": ".env"
 		},

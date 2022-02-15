@@ -1,4 +1,4 @@
-import {Bar} from "../../src/utils/Bar";
+import {Bar} from "@libs/store/utils/Bar";
 
 describe("Bar", () => {
 	it("should pass valid operations", () => {

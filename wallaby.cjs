@@ -1,5 +1,4 @@
-process.env.INITIALIZED = false;
-module.exports = function(wallaby) {
+module.exports = function() {
 	return {
 		files: [
 			{ pattern: "tsconfig.json", instrument: false },
@@ -25,7 +24,7 @@ module.exports = function(wallaby) {
 			"DOTENV_CONFIG_PATH": ".env"
 		},
 
-		workers: { initial: 1, regular: 1, restart: true },
+		workers: { restart: true },
 		debug: true,
 		reportConsoleErrorAsError: true,
 		setup: async (wallaby) => {
@@ -35,10 +34,12 @@ module.exports = function(wallaby) {
 			const fs = require("fs");
 			const path = require("path");
 
-			symlinkNodeModules();
-			symlinkProjectModules();
-			await setupChai();
-			process.env.INITIALIZED = true;
+			if (!process.env.INITIALIZED) {
+				symlinkNodeModules();
+				symlinkProjectModules();
+				await setupChai();
+				process.env.INITIALIZED = "true";
+			}
 
 			function symlinkNodeModules() {
 				const nodeModulesDir = path.join(wallaby.localProjectDir, "node_modules");
@@ -48,6 +49,7 @@ module.exports = function(wallaby) {
 					fs.symlinkSync(commonTempDir, nodeModulesDir);
 				}
 			}
+
 			function rushJson() {
 				const json5 = require("json5");
 				return json5.parse(fs.readFileSync(path.join(wallaby.localProjectDir, "rush.json"), "utf-8"));
@@ -59,7 +61,8 @@ module.exports = function(wallaby) {
 					const [packageCategory, packageName] = project.packageName.split("/");
 					const categoryDir = path.join(wallaby.localProjectDir, "node_modules", packageCategory);
 					if (!fs.existsSync(categoryDir)) fs.mkdirSync(categoryDir);
-					if (!fs.existsSync(`${categoryDir}/${packageName}`)) {
+					if (!fs.existsSync(path.join(categoryDir, packageName))) {
+						console.log("categoryDir", categoryDir);
 						console.log("Sym linking", project.packageName);
 						const sourcePath = `${wallaby.localProjectDir}/${project.projectFolder}`;
 						const targetPath = `${categoryDir}/${packageName}`;

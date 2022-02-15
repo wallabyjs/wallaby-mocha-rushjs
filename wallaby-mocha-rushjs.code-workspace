@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "✨ wallaby-mocha-rushjs",
+			"path": "."
+		},
+		{
+			"name": "📦 @libs/domain",
+			"path": "libs/domain"
+		},
+		{
+			"name": "📦 @libs/store",
+			"path": "libs/store"
+		}
+	],
+	"settings": {}
+}

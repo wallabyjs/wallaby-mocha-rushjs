@@ -8,6 +8,6 @@
 - rush update --full --purge
 - ln -s $(pwd)/common/temp/node_modules node_modules
 - mkdir node_modules/@libs
-- ln -s (pwd)/libs/store node_modules/@libs/domain
-- ln -s (pwd)/libs/store node_modules/@libs/store
+- ln -s $(pwd)/libs/store node_modules/@libs/domain
+- ln -s $(pwd)/libs/store node_modules/@libs/store
 

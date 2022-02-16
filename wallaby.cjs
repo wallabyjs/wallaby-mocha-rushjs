@@ -19,7 +19,7 @@ module.exports = function() {
 		env: {
 			type: "node",
 			params: {
-				runner: "--experimental-specifier-resolution=node --experimental-loader " + require('path').join(__dirname, 'loader.mjs')
+				runner: "--experimental-specifier-resolution=node --experimental-loader " + require('path').join(__dirname, 'loader.js')
 			},
 			"DOTENV_CONFIG_PATH": ".env"
 		},
@@ -62,7 +62,6 @@ module.exports = function() {
 					const categoryDir = path.join(wallaby.localProjectDir, "node_modules", packageCategory);
 					if (!fs.existsSync(categoryDir)) fs.mkdirSync(categoryDir);
 					if (!fs.existsSync(path.join(categoryDir, packageName))) {
-						console.log("categoryDir", categoryDir);
 						console.log("Sym linking", project.packageName);
 						const sourcePath = `${wallaby.localProjectDir}/${project.projectFolder}`;
 						const targetPath = `${categoryDir}/${packageName}`;

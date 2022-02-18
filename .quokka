@@ -1,4 +1,5 @@
 {
+  "stdEsm": false,
   "nativeEsm": true,
   "env": {
     "params": {
